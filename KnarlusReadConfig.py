@@ -19,4 +19,4 @@ def get_token(file_path: str = "TOKEN.txt") -> str:
 
 
 if __name__ == "__main__":
-    print(get_token("tok"))
+    print(get_token())
