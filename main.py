@@ -5,7 +5,6 @@ from KnarlusGetIp import get_ip
 from KnarlusLogConsole import log_to_console
 from KnarlusReadConfig import get_token, get_guild_ids
 
-
 from datetime import datetime
 
 token = get_token()
@@ -40,10 +39,14 @@ slash commands for this startup", log_function_name="on_ready", log_type="war")
 not changed since the last request\n0 => no force (just like not giving this), any other number => force reload",
   "required": False, "type": 4}])
 async def ip(ctx, force_reload: int = 0):
+    log_to_console(
+        log_msg=f"User {ctx.author.name} (nick {ctx.author.nick}) requested the ip in channel {ctx.channel.name}",
+        log_function_name="ip", log_type="inf")
     global last_ip_time, last_ip
     if force_reload != 0 or (datetime.now() - last_ip_time).seconds > 3600:
         last_ip = get_ip()
         last_ip_time = datetime.now()
+        log_to_console(log_msg=f"Fetched new ip address: {last_ip}", log_function_name="ip", log_type="inf")
         await ctx.send(f"Hello {ctx.author.name}!\nThe current ip is `{last_ip}`.")
     else:
         await ctx.send(f"Hello {ctx.author.name}!\nThe current ip is `{last_ip}`.")
