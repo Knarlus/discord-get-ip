@@ -1,13 +1,19 @@
 import KnarlusLogKonsole as KnLog
 
 
-def get_token(relative_file_path: str = "TOKEN.txt") -> str:
+def get_token(file_path: str = "TOKEN.txt") -> str:
+    """
+    get_token returns the first line from the file at the given path.
+
+    :param file_path: path to token file
+    :return: token as string
+    """
     try:
-        with open(file=relative_file_path, mode="r") as token_file:
+        with open(file=file_path, mode="r") as token_file:
             token = token_file.readline()
         return token
     except FileNotFoundError as error:
-        KnLog.log_console(log_msg=f"The file '{relative_file_path}' was not found. Please set up the token file!",
+        KnLog.log_console(log_msg=f"The file '{file_path}' was not found. Please set up the token file!",
                           log_function_name="get_token", log_type="err")
         exit(1)
 
