@@ -7,7 +7,7 @@ def get_token(relative_file_path: str = "TOKEN.txt") -> str:
             token = token_file.readline()
         return token
     except FileNotFoundError as error:
-        KnLog.log_console(log_msg="The file {str} was not found. Please set up the token file!",
+        KnLog.log_console(log_msg=f"The file '{relative_file_path}' was not found. Please set up the token file!",
                           log_function_name="get_token", log_type="err")
         exit(1)
 
