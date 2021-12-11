@@ -1,4 +1,4 @@
-import KnarlusLogKonsole as KnLog
+import KnarlusLogConsole as KnLog
 
 
 def get_token(file_path: str = "TOKEN.txt") -> str:
