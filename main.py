@@ -1,6 +1,6 @@
 import discord
 
-import
+import KnarlusToken as KnToken
 
 token = KnToken.get_token()
 
