@@ -1,3 +1,10 @@
 TOKEN.txt
 GUILD_IDS.txt
+MEMO.txt
+__pycache__/
+bin/
+discord-get-ip.sh
+lib/
+pyvenv.cfg
+share/
 
